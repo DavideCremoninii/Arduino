@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta http-equiv="refresh" content="3">
+  </head>
+  <body>
+    <center>
+        <h2 style="font-family: Helvetica">Pannello di controllo parcheggio</h2>
+
+        <form action="{{ url_for('graph') }}" method="GET">
+          <button type="submit" style="background-color: slateblue; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Visualizza Statistiche</button>
+        </form>
+        
+        <br><br>
+
+        {% if status %}
+        <div style="background-color: #FFA500; border-radius: 10px; padding: 10px; width: 35%;">
+          <p style="font-family: Helvetica;">Attenzione!<br> Richiesta di aiuto in arrivo!</p>
+          <form action="{{ url_for('change_status') }}" method="POST">
+            <button type="submit" style="background-color: darkorange; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Chiudi Richiesta</button>
+          </form>
+        </div>
+        {% endif %}
+
+    </center>
+  </body>
+</html>

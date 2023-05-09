@@ -29,7 +29,7 @@ da un operatore.
 
 Questa interfaccia presenta informazioni che ne facilitano l’utilizzo informando l’utente di come operare,
 di ciò che sta succedendo o dei tempi di attesa necessari.
-Per la realizzazione ho utilizzato 2 schede Arduino Uno e una scheda esp32, collegati in seriale (RXTX). L’esp oltre a permettere il collegamento ad internet, si occupa di scambiare i dati con un realtime
+Per la realizzazione ho utilizzato 2 schede Arduino Uno e una scheda Esp32, collegati in seriale (RXTX). L’**Esp32** oltre a permettere il collegamento ad internet, si occupa di scambiare i dati con un realtime
 database creato con firebase.
 Il resto del circuito è così diviso:
 - **Arduino Uno A**: fornisce un’interfaccia all’utente e permette la lettura del qr code, inviando

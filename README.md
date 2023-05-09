@@ -11,20 +11,34 @@
 -  [Licenza](#licenza)
 
 ## Descrizione progetto
-Il progetto implementa un sistema di autenticazione di un parcheggio pensato per controllare l'accesso di dipendenti di un ufficio o studenti di un università. L'autenticazione avviene tramite lettura di qr code associati ad ogni utente, inseriti in un database. Oltre a permettere l'autenticazione il sistema registra i tempi di utilizzo del parcheggio di ogni utente e rende possibili consultare queste statistiche da un pannello di controllo. Tramite il pannello di controllo è possibile anche ricevere notifiche di un eventuale richiesta di aiuto proveniente dal totem del parcheggio per poter essere informati e provvedere ad assistere l'utente.
-
-Attraverso la presenza di un display e vari led, è presente anche un interfaccia per l'utente del parcheggio che potrà, utilizzando dei pulsanti, accedere a diverse funzionalità:
-- **Ingresso**: l'utente potrà impostare il circuito in modalità ingresso per permettere di autenticare la propria utenza e far alzare la sbarra corretta ed entrare all'interno del parcheggio;
-- **Uscita**: l'utente potrà impostare il circuito in modalità uscita per permettere di inserire nel sistema quali tra gli utenti sta lasciando il parcheggio e far alzare la sbarra corretta;
-- **Richiesta di aiuto**: l'utente potrà, in caso di necessità, aprire una richiesta di assistenza, la quale potrà essere chiusa direttamente dall'utente al totem, oppure tramite il pannello di controllo gestito da un operatore.
-
-Questa interfaccia presenta informazioni che ne facilitano l'utilizzo informando l'utente di come operare, di ciò che sta succedendo o dei tempi di attesa necessari.
-
-Per la realizzazione ho utilizzato 2 schede Arduino Uno e una scheda esp32, collegati in seriale (RX-TX). L'esp permette il collegamento ad internet, e si occupa di scambiare i dati con un realtime database creato con firebase. Il resto del circuito è così diviso:
-- **Arduino Uno A**: fornisce un interfaccia all'utente e permette la lettura del qr code, inviando questo dato e la modalità selezionata dall'utente in seriale questi dati, attendendo come risposta un riscontro per poi informare l'utente tramite led e display;
-- **Arduino Uno B**: svolge l'operazione di apertura e chiusura delle due sbarre relative all'ingresso e all'uscita, in base ai dati provenienti dall'esp. Questa parte di circuito controlla anche un led di errore/avviso che completa l'interfaccia per l'utente.
-
-Infine ho creato un pannello di controllo implementando un interfaccia web in python, sfruttando anche flask e plotly.
+Il progetto implementa un sistema di autenticazione di un parcheggio pensato per controllare l’accesso
+di dipendenti di un ufficio o studenti di un universit`a. L’autenticazione avviene tramite lettura di codici
+QR associati ad ogni utente. Oltre a permettere l’autenticazione, il sistema registra i tempi di utilizzo
+del parcheggio di ogni utente e rende possibili consultare queste statistiche da un pannello di controllo.
+Tramite quest’ultimo `e possibile anche ricevere notifiche di un eventuale richiesta di aiuto proveniente
+dal totem del parcheggio, per poter essere informati e provvedere ad assistere l’utente.
+Attraverso la presenza di un display e vari led, `e presente anche un intefraccia per l’utente del parcheggio
+che potr`a, utilizzando dei pulsanti, accedere a diverse funzionalit`a:
+- **Ingresso**: l’utente potr`a impostare il circuito in modalit`a ingresso per permettere di autenticare la
+propria utenza e far alzare la sbarra corretta ed entrare all’interno del parcheggio;
+- **Uscita**: l’utente potr`a impostare il circuito in modalit`a uscita per permettere di inserire nel sistema
+quali tra gli utenti sta lasciando il parcheggio e far alzare la sbarra corretta;
+- **Richiesta di aiuto**: l’utente potr`a, in caso di necessit`a, aprire una richiesta di assistenza, la quale
+potr`a essere chiusa direttamente dall’utente al totem, oppure tramite il pannello di controllo gestito
+da un operatore.
+Questa interfaccia presenta informazioni che ne facilitano l’utilizzo informando l’utente di come operare,
+di ci`o che sta succedendo o dei tempi di attesa necessari.
+Per la realizzazione ho utilizzato 2 schede Arduino Uno e una scheda esp32, collegati in seriale (RXTX). L’esp oltre a permettere il collegamento ad internet, si occupa di scambiare i dati con un realtime
+database creato con firebase.
+Il resto del circuito `e cos`ı diviso:
+- **Arduino Uno A**: fornisce un’interfaccia all’utente e permette la lettura del qr code, inviando
+questo dato e la modalit`a selezionata dall’utente in seriale, attendendo come risposta un riscontro
+per poi informare l’utente tramite led e display;
+- **Arduino Uno B**: svolge l’operazione di apertura e chiusura delle due sbarre relative all’ingresso
+e all’uscita, in base ai dati provenienti dall’esp. Questa parte di circuito controlla anche un led di
+errore/avviso che completa l’interfaccia per l’utente.
+Infine, ho creato un pannello di controllo implementando un interfaccia web in python, sfruttando anche
+flask e plotly.
 
 
 ### Schema progetto
@@ -47,6 +61,7 @@ Librerie necessarie:
     - Wifi
     - Servo
     - U8g
+    - SoftwareSerial
  - Per il codice python:
     - firebase_admin
     - plotly

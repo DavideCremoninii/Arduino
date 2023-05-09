@@ -26,6 +26,7 @@ quali tra gli utenti sta lasciando il parcheggio e far alzare la sbarra corretta
 - **Richiesta di aiuto**: l’utente potrà, in caso di necessità, aprire una richiesta di assistenza, la quale
 potrà essere chiusa direttamente dall’utente al totem, oppure tramite il pannello di controllo gestito
 da un operatore.
+
 Questa interfaccia presenta informazioni che ne facilitano l’utilizzo informando l’utente di come operare,
 di ciò che sta succedendo o dei tempi di attesa necessari.
 Per la realizzazione ho utilizzato 2 schede Arduino Uno e una scheda esp32, collegati in seriale (RXTX). L’esp oltre a permettere il collegamento ad internet, si occupa di scambiare i dati con un realtime
